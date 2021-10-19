@@ -8,8 +8,10 @@
         "tether-04-transit.dmm",
         "tether-05-station1.dmm",
         "tether-06-station2.dmm",
+        "tether-07-station3.dmm",
         "tether-08-mining.dmm",
-        "tether-09-solars.dmm"
+        "tether-09-solars.dmm",
+        "tether-10-colony.dmm"
    ],
    "traits":[
       {
@@ -17,8 +19,7 @@
         "Station":true,
         "Linkage":null,
         "Gravity":true,
-        "Baseturf":"/turf/simulated/floor/outdoors/grass/sif/virgo3b",
-		"FacilityWeaponLock":true
+        "Baseturf":"/turf/simulated/floor/outdoors/grass/sif/virgo3b"
       },
       {
         "Down":-1,
@@ -26,16 +27,14 @@
         "Station":true,
         "Linkage":null,
         "Gravity":true,
-        "Baseturf":"/turf/simulated/open/virgo3b",
-		"FacilityWeaponLock":true
+        "Baseturf":"/turf/simulated/open/virgo3b"
       },
       {
         "Down":-1,
         "Station":true,
         "Linkage":null,
         "Gravity":true,
-        "Baseturf":"/turf/simulated/open/virgo3b",
-		"FacilityWeaponLock":true
+        "Baseturf":"/turf/simulated/open/virgo3b"
       },
       {
          "Down":-1,
@@ -43,16 +42,14 @@
          "Station":true,
          "Linkage":null,
          "Gravity":true,
-         "Baseturf":"/turf/simulated/sky/virgo3b",
-		 "FacilityWeaponLock":true
+         "Baseturf":"/turf/simulated/sky/virgo3b"
       },
       {
         "Up":1,
         "Station":true,
         "Linkage":null,
         "Gravity":true,
-        "Baseturf":"/turf/space",
-		"FacilityWeaponLock":true
+        "Baseturf":"/turf/space"
       },
       {
         "Up":1,
@@ -60,22 +57,32 @@
         "Station":true,
         "Linkage":null,
         "Gravity":true,
-        "Baseturf":"/turf/space",
-		"FacilityWeaponLock":true
+        "Baseturf":"/turf/space"
+      },
+      {
+        "Down":-1,
+        "Station":true,
+        "Linkage":null,
+        "Gravity":true,
+        "Baseturf":"/turf/space"
       },
       {
         "Mining":true,
         "Linkage":null,
         "Gravity":true,
-        "Baseturf":"/turf/simulated/floor/outdoors/grass/sif/virgo3b",
-		"FacilityWeaponLock":false
+        "Baseturf":"/turf/simulated/floor/outdoors/grass/sif/virgo3b"
       },
       {
         "Station":true,
         "Linkage":null,
         "Gravity":true,
-        "Baseturf":"/turf/simulated/floor/outdoors/grass/sif/virgo3b",
-		"FacilityWeaponLock":false
+        "Baseturf":"/turf/simulated/floor/outdoors/grass/sif/virgo3b"
+      },
+      {
+        "Station":false,
+        "Linkage":null,
+        "Gravity":true,
+        "Baseturf":"/turf/simulated/floor/outdoors/grass/sif/virgo3b"
       }
    ],
    "minetype":"none"

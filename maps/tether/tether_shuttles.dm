@@ -242,7 +242,7 @@
 	warmup_time = 0
 	current_location = "tether_medivac_dock"
 	docking_controller_tag = "medivac_docker"
-	shuttle_area = list(/area/shuttle/medivac/cockpit, /area/shuttle/medivac/general, /area/shuttle/medivac/engines)
+	//shuttle_area = list(/area/shuttle/medivac/cockpit, /area/shuttle/medivac/general, /area/shuttle/medivac/engines)
 	fuel_consumption = 2
 	move_direction = EAST
 
@@ -267,7 +267,7 @@
 	warmup_time = 0
 	current_location = "tether_securiship_dock"
 	docking_controller_tag = "securiship_docker"
-	shuttle_area = list(/area/shuttle/securiship/cockpit, /area/shuttle/securiship/general, /area/shuttle/securiship/engines)
+	//shuttle_area = list(/area/shuttle/securiship/cockpit, /area/shuttle/securiship/general, /area/shuttle/securiship/engines)
 	fuel_consumption = 2
 	move_direction = NORTH
 
