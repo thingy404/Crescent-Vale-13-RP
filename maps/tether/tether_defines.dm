@@ -18,10 +18,19 @@
 #define Z_LEVEL_SHIPS						12
 #define Z_LEVEL_UNDERDARK					13
 #define Z_LEVEL_ALIENSHIP					14
-#define Z_LEVEL_BEACH						15
-#define Z_LEVEL_BEACH_CAVE					16
-#define Z_LEVEL_AEROSTAT					17
-#define Z_LEVEL_AEROSTAT_SURFACE			18
+#define Z_LEVEL_PLAINS						15
+#define Z_LEVEL_OFFMAP1						16
+#define Z_LEVEL_OFFMAP2						17
+#define Z_LEVEL_ROGUEMINE_1					18
+#define Z_LEVEL_ROGUEMINE_2					19
+#define Z_LEVEL_BEACH						20
+#define Z_LEVEL_BEACH_CAVE					21
+#define Z_LEVEL_DESERT						22
+#define Z_LEVEL_AEROSTAT					23
+#define Z_LEVEL_AEROSTAT_SURFACE			24
+#define Z_LEVEL_DEBRISFIELD					25
+#define Z_LEVEL_FUELDEPOT					26
+#define Z_LEVEL_GATEWAY						27
 
 //Camera networks
 #define NETWORK_TETHER "Tether"
@@ -30,16 +39,38 @@
 #define NETWORK_EXPLORATION "Exploration"
 #define NETWORK_XENOBIO "Xenobiology"
 
+/datum/map/tether/New()
+	..()
+	var/choice = pickweight(list(
+		"title1" = 50,
+		"title2" = 10,
+		"title3" = 50,
+		"title4" = 50,
+		"title5" = 20,
+		"title6" = 20,
+		"title7" = 20,
+		"title8" = 1,
+		"title9" = 1
+	))
+	if(choice)
+		lobby_screens = list(choice)
+
 /datum/map/tether
 	name = "Virgo"
 	full_name = "NSB Adephagia"
 	path = "tether"
 
+	use_overmap = TRUE
+	overmap_z = Z_LEVEL_MISC
+	overmap_size = 50
+	overmap_event_areas = 44
+	usable_email_tlds = list("virgo.nt")
+
 	zlevel_datum_type = /datum/map_z_level/tether
 
 	lobby_icon = 'icons/misc/title_vr.dmi'
-	lobby_screens = list("title1", "title2", "title3", "title4", "title5", "title6", "title7")
-	id_hud_icons = 'icons/mob/hud_jobs_vr.dmi' //CITADEL CHANGE: Ignore this line because it's going to be overriden in modular_citadel\maps\tether\tether_defines.dm
+	lobby_screens = list("tether2_night")
+	id_hud_icons = 'icons/mob/hud_jobs_vr.dmi'
 
 	holomap_smoosh = list(list(
 		Z_LEVEL_SURFACE_LOW,
@@ -65,7 +96,7 @@
 	shuttle_recall_message = "The scheduled crew transfer has been cancelled."
 	shuttle_name = "Automated Tram"
 	emergency_shuttle_docked_message = "The evacuation tram has arrived at the tram station. You have approximately %ETD% to board the tram."
-	emergency_shuttle_leaving_dock = "The emergency tram has left the station. Estimate %ETA% until the shuttle arrives at %dock_name%."
+	emergency_shuttle_leaving_dock = "The emergency tram has left the station. Estimate %ETA% until the tram arrives at %dock_name%."
 	emergency_shuttle_called_message = "An emergency evacuation has begun, and an off-schedule tram has been called. It will arrive at the tram station in approximately %ETA%."
 	emergency_shuttle_recall_message = "The evacuation tram has been recalled."
 
@@ -95,33 +126,44 @@
 							NETWORK_COMMUNICATORS,
 							NETWORK_ALARM_ATMOS,
 							NETWORK_ALARM_POWER,
-							NETWORK_ALARM_FIRE
+							NETWORK_ALARM_FIRE,
+							NETWORK_TALON_HELMETS,
+							NETWORK_TALON_SHIP
 							)
 
 	bot_patrolling = FALSE
 
-	allowed_spawns = list("Tram Station","Gateway","Cryogenic Storage","Cyborg Storage")
+	allowed_spawns = list("Tram Station","Gateway","Cryogenic Storage","Cyborg Storage","ITV Talon Cryo")
 	spawnpoint_died = /datum/spawnpoint/tram
 	spawnpoint_left = /datum/spawnpoint/tram
 	spawnpoint_stayed = /datum/spawnpoint/cryo
 
 	meteor_strike_areas = list(/area/tether/surfacebase/outside/outside3)
 
+	default_skybox = /datum/skybox_settings/tether
+
 	unit_test_exempt_areas = list(
 		/area/tether/surfacebase/outside/outside1,
+	//	/area/tether/elevator,
 		/area/vacant/vacant_site,
 		/area/vacant/vacant_site/east,
 		/area/crew_quarters/sleep/Dorm_1/holo,
 		/area/crew_quarters/sleep/Dorm_3/holo,
 		/area/crew_quarters/sleep/Dorm_5/holo,
-		/area/crew_quarters/sleep/Dorm_7/holo)
+		/area/crew_quarters/sleep/Dorm_7/holo,
+		/area/looking_glass/lg_1,
+	//	/area/rnd/miscellaneous_lab
+		)
+
 	unit_test_exempt_from_atmos = list(
-		/area/engineering/atmos/intake, // Outside,
+	//	/area/engineering/atmos_intake, // Outside,
 		/area/rnd/external, //  Outside,
-		/area/tether/surfacebase/mining_main/external, // Outside,
-		/area/tether/surfacebase/mining_main/airlock, //  Its an airlock,
 		/area/tether/surfacebase/emergency_storage/rnd,
-		/area/tether/surfacebase/emergency_storage/atrium)
+		/area/tether/surfacebase/emergency_storage/atrium,
+	//	/area/tether/surfacebase/lowernortheva, // it airlock
+	//	/area/tether/surfacebase/lowernortheva/external, //it outside
+	//	/area/tether/surfacebase/security/gasstorage //it maint
+		)
 
 	lateload_z_levels = list(
 		list("Tether - Misc","Tether - Ships","Tether - Underdark"), //Stock Tether lateload maps
@@ -147,7 +189,26 @@
 		Z_LEVEL_BEACH
 		)
 
+	belter_docked_z = 		list(Z_LEVEL_SPACE_HIGH)
+	belter_transit_z =	 	list(Z_LEVEL_MISC)
+	belter_belt_z = 		list(Z_LEVEL_ROGUEMINE_1,
+						 		 Z_LEVEL_ROGUEMINE_2)
+
+	mining_station_z =		list(Z_LEVEL_SPACE_HIGH)
+	mining_outpost_z =		list(Z_LEVEL_SURFACE_MINE)
+
 	lateload_single_pick = null //Nothing right now.
+
+	planet_datums_to_make = list(/datum/planet/virgo3b,
+								/datum/planet/virgo4)
+
+// /datum/map/tether/get_map_info()
+// 	. = list()
+// 	. +=  "The [full_name] is an ancient ruin turned workplace in the Virgo-Erigone System, deep in the midst of the Coreward Periphery.<br>"
+// 	. +=  "Humanity has spread across the stars and has met many species on similar or even more advanced terms than them - it's a brave new world and many try to find their place in it . <br>"
+// 	. +=  "Though Virgo-Erigone is not important for the great movers and shakers, it sees itself in the midst of the interests of a reviving alien species of the Zorren, corporate and subversive interests and other exciting dangers the Periphery has to face.<br>"
+// 	. +=  "As an employee or contractor of NanoTrasen, operators of the Adephagia and one of the galaxy's largest corporations, you're probably just here to do a job."
+// 	return jointext(., "<br>")
 
 /datum/map/tether/perform_map_generation()
 
@@ -165,7 +226,7 @@
 		Z_LEVEL_SURFACE_MID,
 		Z_LEVEL_SURFACE_HIGH,
 		Z_LEVEL_SURFACE_MINE,
-		Z_LEVEL_SOLARS//,
+		Z_LEVEL_SOLARS,
 		//Z_LEVEL_PLAINS
 	)
 
@@ -186,6 +247,183 @@
 			Z_LEVEL_SPACE_HIGH)
 	else
 		return list(srcz) //may prevent runtimes, but more importantly gives gps units a shortwave-esque function
+
+/datum/skybox_settings/tether
+	icon_state = "space5"
+	use_stars = FALSE
+
+// Overmap represetation of tether
+/obj/effect/overmap/visitable/sector/virgo3b
+	name = "Virgo 3B"
+	desc = "Full of phoron, and home to the NSB Adephagia, where you can dock and refuel your craft."
+	scanner_desc = @{"[i]Registration[/i]: NSB Adephagia
+[i]Class[/i]: Installation
+[i]Transponder[/i]: Transmitting (CIV), NanoTrasen IFF
+[b]Notice[/b]: NanoTrasen Base, authorized personnel only"}
+	base = 1
+	icon_state = "globe"
+	color = "#d35b5b"
+	initial_generic_waypoints = list(
+		"tether_dockarm_d1a1", //Bottom left,
+		"tether_dockarm_d1a2", //Top left,
+		"tether_dockarm_d1a3", //Left on inside,
+		"tether_dockarm_d2a1", //Bottom right,
+		"tether_dockarm_d2a2", //Top right,
+		"tether_dockarm_d1l", //End of left arm,
+		"tether_dockarm_d2l", //End of right arm,
+		"tether_space_SE", //station1, bottom right of space,
+		"tether_space_NE", //station1, top right of space,
+		"tether_space_SW", //station2, bottom left of space,
+		"tether_excursion_hangar", //Excursion shuttle hangar,
+		"tether_medivac_dock", //Medical shuttle dock,
+		"tourbus_dock" //Surface large hangar
+		)
+	//Despite not being in the multi-z complex, these levels are part of the overmap sector
+	extra_z_levels = list(
+		Z_LEVEL_SURFACE_MINE,
+		Z_LEVEL_SOLARS,
+		Z_LEVEL_PLAINS,
+		Z_LEVEL_UNDERDARK
+	)
+
+	levels_for_distress = list(
+		Z_LEVEL_OFFMAP1,
+		Z_LEVEL_BEACH,
+		Z_LEVEL_AEROSTAT,
+		Z_LEVEL_DEBRISFIELD,
+		Z_LEVEL_FUELDEPOT
+		)
+
+
+//Port of Triumph Overmap Visitable Effects
+/obj/effect/overmap/visitable/sector/debrisfield
+	name = "Debris Field"
+	desc = "Space junk galore."
+	scanner_desc = @{"[i]Information[/i]: A collection of ruins from ages ago.."}
+	icon_state = "dust2"
+	color = "#BBBBBB"
+	known = FALSE
+	in_space = 1
+	initial_generic_waypoints = list("triumph_excursion_debrisfield")
+
+
+/obj/effect/overmap/visitable/sector/class_d
+	name = "Unidentified Planet"
+	desc = "ASdlke ERROR%%%% UNABLE TO----."
+	scanner_desc = @{"[i]Information[/i]: Scans report a planet with nearly no atmosphere, but life-signs are registered."}
+	in_space = 0
+	icon_state = "globe"
+	known = FALSE
+	color = "#882933"
+
+/obj/effect/overmap/visitable/sector/class_h
+	name = "Desert Planet"
+	desc = "Planet readings indicate light atmosphere and high heat."
+	scanner_desc = @{"[i]Information[/i]
+Atmosphere: Thin
+Weather: Sunny, little to no wind
+Lifesign: Multiple Fauna and humanoid life-signs detected."}
+	in_space = 0
+	icon_state = "globe"
+	known = FALSE
+	color = "#BA9066"
+
+
+/obj/effect/overmap/visitable/sector/pirate_base
+	name = "Vox Pirate Base"
+	desc = "A nest of hostiles to the company. Caution is advised."
+	scanner_desc = @{"[i]Information[/i]
+Warning, unable to scan through sensor shielding systems at location. Possible heavy hostile life-signs."}
+	in_space = 1
+	known = FALSE
+	icon_state = "piratebase"
+	color = "#FF3333"
+	initial_generic_waypoints = list("piratebase_hanger")
+
+/obj/effect/overmap/visitable/sector/mining_planet
+	name = "Mineral Rich Planet"
+	desc = "A planet filled with valuable minerals. No life signs currently detected on the surface."
+	scanner_desc = @{"[i]Information[/i]
+Atmopshere: Mix of Oxygen, Nitrogen and Phoron. DANGER
+Lifesigns: No immediate life-signs detected."}
+	in_space = 0
+	icon_state = "globe"
+	color = "#8F6E4C"
+	initial_generic_waypoints = list("mining_outpost")
+
+/obj/effect/overmap/visitable/sector/gaia_planet
+	name = "Gaia Planet"
+	desc = "A planet with peaceful life, and ample flora."
+	scanner_desc = @{"[i]Incoming Message[/i]: Hello travler! Looking to enjoy the shine of the star on land?
+Are you weary from all that constant space travel?
+Looking to quench a thirst of multiple types?
+Then look no further than the resorts of Sigmar!
+With a branch on every known Gaia planet, we aim to please and serve.
+Our fully automated ---- [i]Message exceeds character limit.[/i]
+[i] Information [/i]
+Atmosphere: Breathable with standard human required environment
+Weather: Sunny, with chance of showers and thunderstorms. 25C
+Lifesign: Multiple Fauna. No history of hostile life recorded
+Ownership: Planet is owned by the Happy Days and Sunshine Corporation.
+Allignment: Neutral to NanoTrasen. No Discount for services expected."}
+	in_space = 0
+	icon_state = "globe"
+	known = FALSE
+	color = "#33BB33"
+
+/obj/effect/overmap/visitable/sector/frozen_planet
+	name = "Frozen Planet"
+	desc = "A world shrouded in cold and snow that seems to never let up."
+	scanner_desc = @{"[i]Information[/i]: A planet with a very cold atmosphere. Possible life signs detected."}
+	icon_state = "globe"
+	color = "#3434AA"
+	known = FALSE
+	in_space = 0
+
+/obj/effect/overmap/visitable/sector/trade_post
+	name = "Nebula Gas Food Mart"
+	desc = "A ubiquitous chain of traders common in this area of the Galaxy."
+	scanner_desc = @{"[i]Information[/i]: A trade post and fuel depot. Possible life signs detected."}
+	in_space = 1
+	known = TRUE
+	icon_state = "fueldepot"
+	color = "#8F6E4C"
+
+	initial_generic_waypoints = list("nebula_space_SW")
+
+	initial_restricted_waypoints = list(
+		"Beruang Trade Ship" = list("tradeport_hangar"),
+		"Mining Shuttle" = list("nebula_pad_2"),
+		"Excursion Shuttle" = list("nebula_pad_3"),
+		"Pirate Skiff" = list("nebula_pad_4"),
+		"Dart EMT Shuttle" = list("nebula_pad_5"),
+		"Civilian Transport" = list("nebula_pad_6")
+		)
+
+
+/obj/effect/overmap/visitable/sector/virgo3b/Crossed(var/atom/movable/AM)
+	. = ..()
+	announce_atc(AM,going = FALSE)
+
+/obj/effect/overmap/visitable/sector/virgo3b/Uncrossed(var/atom/movable/AM)
+	. = ..()
+	announce_atc(AM,going = TRUE)
+
+/obj/effect/overmap/visitable/sector/virgo3b/get_space_zlevels()
+	return list(Z_LEVEL_SPACE_LOW, Z_LEVEL_SPACE_HIGH)
+
+/obj/effect/overmap/visitable/sector/virgo3b/proc/announce_atc(var/atom/movable/AM, var/going = FALSE)
+	var/message = "Sensor contact for vessel '[AM.name]' has [going ? "left" : "entered"] ATC control area."
+	//For landables, we need to see if their shuttle is cloaked
+	if(istype(AM, /obj/effect/overmap/visitable/ship/landable))
+		var/obj/effect/overmap/visitable/ship/landable/SL = AM //Phew
+		var/datum/shuttle/autodock/multi/shuttle = SSshuttle.shuttles[SL.shuttle]
+		if(!istype(shuttle) || !shuttle.cloaked) //Not a multishuttle (the only kind that can cloak) or not cloaked
+			GLOB.lore_atc.msg(message)
+
+	//For ships, it's safe to assume they're big enough to not be sneaky
+	else if(istype(AM, /obj/effect/overmap/visitable/ship))
+		GLOB.lore_atc.msg(message)
 
 // For making the 6-in-1 holomap, we calculate some offsets
 #define TETHER_MAP_SIZE 140 // Width and height of compiled in tether z levels.

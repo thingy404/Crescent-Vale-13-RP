@@ -1448,6 +1448,7 @@
 "BR" = (/obj/structure/railing{dir = 4},/turf/simulated/open,/area/engineering/atmos)
 "BS" = (/obj/machinery/atmospherics/unary/vent_pump/on,/obj/structure/closet/firecloset,/obj/item/handcuffs,/obj/effect/decal/cleanable/cobweb,/turf/simulated/floor/tiled/steel_dirty,/area/rnd/research_storage)
 "BT" = (/obj/structure/railing,/obj/machinery/camera/network/northern_star,/turf/simulated/floor/grass,/area/tether/surfacebase/fishing_garden)
+"BU" = (/obj/machinery/telecomms/broadcaster/preset_right/tether,/turf/simulated/floor/bluegrid{initial_gas_mix = "n2=100;TEMP=80"; name = "Mainframe Base"},/area/tcommsat/chamber)
 "BV" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/maintenance/lower/atmos)
 "BW" = (/obj/structure/catwalk,/turf/simulated/floor/plating,/area/maintenance/lower/atmos)
 "BX" = (/obj/structure/railing{dir = 8},/turf/simulated/floor/plating,/area/maintenance/lower/atmos)
@@ -1725,7 +1726,6 @@
 "Hj" = (/obj/machinery/telecomms/processor/preset_two,/turf/simulated/floor/tiled/dark{initial_gas_mix = "n2=100;TEMP=80"},/area/tcommsat/chamber)
 "Hk" = (/obj/machinery/telecomms/bus/preset_two/tether,/turf/simulated/floor/tiled/dark{initial_gas_mix = "n2=100;TEMP=80"},/area/tcommsat/chamber)
 "Hl" = (/obj/machinery/telecomms/relay/preset/tether/base_high,/turf/simulated/floor/tiled/dark{initial_gas_mix = "n2=100;TEMP=80"},/area/tcommsat/chamber)
-"Hm" = (/obj/machinery/telecomms/broadcaster/preset_right,/turf/simulated/floor/bluegrid{initial_gas_mix = "n2=100;TEMP=80"; name = "Mainframe Base"},/area/tcommsat/chamber)
 "Hn" = (/obj/machinery/telecomms/hub/preset/tether,/turf/simulated/floor/bluegrid{initial_gas_mix = "n2=100;TEMP=80"; name = "Mainframe Base"},/area/tcommsat/chamber)
 "Ho" = (/obj/machinery/telecomms/receiver/preset_right/tether,/turf/simulated/floor/bluegrid{initial_gas_mix = "n2=100;TEMP=80"; name = "Mainframe Base"},/area/tcommsat/chamber)
 "Hp" = (/obj/machinery/telecomms/relay/preset/tether/base_low,/turf/simulated/floor/tiled/dark{initial_gas_mix = "n2=100;TEMP=80"},/area/tcommsat/chamber)
@@ -2115,7 +2115,7 @@ aaababababababababababababababababababababababababababababababababababababababab
 aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababacacacacByJhCyByJiJjJkJiByByByQYQpMkvZXmNNTfQYacacacacacacGwGKGLGMGNFRGzGIGIGIGOGIGPGIGOGIGIGIGzFRacacacacacacacabababababababababababababababababababababababaa
 aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababacacacacByJmBWByJnJnJnJnByJoJoQYQYUTQYQYVmQYQYacacacacacacGwGQGRGSGTFRGzGUGVGWGOGIgCGIGOGIGXGYGzFRacacacacacacacabababababababababababababababababababababababaa
 aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababacacacacByIcCyByJoJoJoJoByJoJoQYYJJtLAZNJuZNQYacacacacacacGwGZHaHaHbFRHcGIGIGIGOGIHdGIGOGIGIGIHeFRacacacacacacacabababababababababababababababababababababababaa
-aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababLILIacacByJrJsByJoJoJoJoByJoJoQYZNMkZNZNJuJaQYacacacacacacGwHfHgHhGwFRHiHjHkHlGFHmHnHoGFHpHqHrHsFRacacacacacacacabababababababababababababababababababababababaa
+aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababLILIacacByJrJsByJoJoJoJoByJoJoQYZNMkZNZNJuJaQYacacacacacacGwHfHgHhGwFRHiHjHkHlGFBUHnHoGFHpHqHrHsFRacacacacacacacabababababababababababababababababababababababaa
 aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababLILILILIByJvBWByJoJoJoJoByJoJoQYLAJaYJMkNLVIQYacacacacacacGwGwGwGwGwFRGzHtHuLgGOGIGzGIGOGIHvHwGzFRacacacacacacacabababababababababababababababababababababababaa
 aaababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababLIByJyCyByByByByByByBVBVQYMkZNZNMkJuZNQYacacacacacacacacacacacFRHxGIGIGIGOGIHyGIGOGIGIGIGzFRacacacacacabababababababababababababababababababababababababaa
 aaabababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababJzCyCyBWJACyCyCyCfBWCyQYYJZNNvZNTyKoQYacacacacacacacacacacacFRGzHzHAHBHCGIHDGIHEHFHGHHGzFRacacacacacacababababababababababababababababababababababababaa

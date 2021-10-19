@@ -34,32 +34,32 @@
 	external_pressure_bound = ONE_ATMOSPHERE * 1.1
 
 
-/obj/effect/step_trigger/teleporter/to_mining/New()
-	..()
+/obj/effect/step_trigger/teleporter/to_mining/Initialize(mapload)
+	. = ..()
 	teleport_x = src.x
 	teleport_y = 2
 	teleport_z = Z_LEVEL_SURFACE_MINE
 
-/obj/effect/step_trigger/teleporter/from_mining/New()
-	..()
+/obj/effect/step_trigger/teleporter/from_mining/Initialize(mapload)
+	. = ..()
 	teleport_x = src.x
 	teleport_y = world.maxy - 1
 	teleport_z = Z_LEVEL_SURFACE_LOW
 
-/obj/effect/step_trigger/teleporter/to_solars/New()
-	..()
+/obj/effect/step_trigger/teleporter/to_solars/Initialize(mapload)
+	. = ..()
 	teleport_x = world.maxx - 1
 	teleport_y = src.y
 	teleport_z = Z_LEVEL_SOLARS
 
-/obj/effect/step_trigger/teleporter/from_solars/New()
-	..()
+/obj/effect/step_trigger/teleporter/from_solars/Initialize(mapload)
+	. = ..()
 	teleport_x = 2
 	teleport_y = src.y
 	teleport_z = Z_LEVEL_SURFACE_LOW
 
-/obj/effect/step_trigger/teleporter/wild/New()
-	..()
+/obj/effect/step_trigger/teleporter/wild/Initialize(mapload)
+	. = ..()
 
 	//If starting on east/west edges.
 	if (src.x == 1)
@@ -77,8 +77,8 @@
 		teleport_y = src.y
 
 /obj/effect/step_trigger/teleporter/to_underdark
-	icon = 'icons/obj/stairs.dmi'
-	icon_state = "stairs"
+	icon = 'icons/obj/structures/stairs_64x64.dmi'
+	icon_state = ""
 	invisibility = 0
 /obj/effect/step_trigger/teleporter/to_underdark/Initialize()
 	. = ..()
@@ -90,8 +90,8 @@
 			teleport_z = Z.z
 
 /obj/effect/step_trigger/teleporter/from_underdark
-	icon = 'icons/obj/stairs.dmi'
-	icon_state = "stairs"
+	icon = 'icons/obj/structures/stairs_64x64.dmi'
+	icon_state = ""
 	invisibility = 0
 /obj/effect/step_trigger/teleporter/from_underdark/Initialize()
 	. = ..()
@@ -101,6 +101,18 @@
 		var/datum/map_z_level/Z = GLOB.using_map.zlevels[z_num]
 		if(Z.name == "Mining Outpost")
 			teleport_z = Z.z
+
+/obj/effect/step_trigger/teleporter/to_plains/Initialize(mapload)
+	. = ..()
+	teleport_x = src.x
+	teleport_y = world.maxy - 1
+	teleport_z = Z_LEVEL_PLAINS
+
+/obj/effect/step_trigger/teleporter/from_plains/Initialize(mapload)
+	. = ..()
+	teleport_x = src.x
+	teleport_y = 2
+	teleport_z = Z_LEVEL_SURFACE_LOW
 
 /obj/effect/step_trigger/teleporter/planetary_fall/virgo3b/find_planet()
 	planet = planet_virgo3b
@@ -120,7 +132,7 @@
 /obj/effect/step_trigger/lost_in_space/bluespace/Trigger(A)
 	if(world.time - last_sound > 5 SECONDS)
 		last_sound = world.time
-		playsound(get_turf(src), 'sound/effects/supermatter.ogg', 75, 1)
+		playsound(src, 'sound/effects/supermatter.ogg', 75, 1)
 	if(ismob(A) && prob(5))//lucky day
 		var/destturf = locate(rand(5,world.maxx-5),rand(5,world.maxy-5),pick(GLOB.using_map.station_levels))
 		new /datum/teleport/instant(A, destturf, 0, 1, null, null, null, 'sound/effects/phasein.ogg')
@@ -141,7 +153,8 @@
 		return FALSE // Block exit from our turf to above
 	return TRUE
 
-/obj/effect/ceiling/CanAllowThrough(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/effect/ceiling/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	. = ..()
 	if(mover && mover.z > src.z)
 		return FALSE // Block entry from above to our turf
 	return TRUE
@@ -165,10 +178,8 @@
 
 // Walking on maglev tracks will shock you! Horray!
 /turf/simulated/floor/maglev/Entered(var/atom/movable/AM, var/atom/old_loc)
-	..()
 	if(isliving(AM) && prob(50))
 		track_zap(AM)
-
 /turf/simulated/floor/maglev/attack_hand(var/mob/user)
 	if(prob(75))
 		track_zap(user)
@@ -176,7 +187,7 @@
 /turf/simulated/floor/maglev/proc/track_zap(var/mob/living/user)
 	if (!istype(user)) return
 	if (electrocute_mob(user, shock_area, src))
-		var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
+		var/datum/effect_system/spark_spread/s = new
 		s.set_up(5, 1, src)
 		s.start()
 
@@ -313,6 +324,10 @@ var/global/list/latejoin_tram   = list()
 	name = "dorm seven holodeck control"
 	projection_area = /area/crew_quarters/sleep/Dorm_7/holo
 
+/obj/machinery/computer/HolodeckControl/holodorm/warship
+	name = "warship holodeck control"
+	projection_area = /area/mothership/holodeck/holo
+
 // Small Ship Holodeck
 /obj/machinery/computer/HolodeckControl/houseboat
 	projection_area = /area/houseboat/holodeck_area
@@ -378,8 +393,8 @@ var/global/list/latejoin_tram   = list()
 	desc = "Neutralizes toxins and provides a mild analgesic effect."
 	icon_state = "pill2"
 
-/obj/item/reagent_containers/pill/airlock/New()
-	..()
+/obj/item/reagent_containers/pill/airlock/Initialize(mapload)
+	. = ..()
 	reagents.add_reagent("anti_toxin", 15)
 	reagents.add_reagent("paracetamol", 5)
 
@@ -398,12 +413,11 @@ var/global/list/latejoin_tram   = list()
 	name = "expedition weaponry cabinet"
 	req_one_access = list(access_explorer,access_armory)
 
-/obj/structure/closet/secure_closet/guncabinet/excursion/New()
-	..()
-	for(var/i = 1 to 4)
+/obj/structure/closet/secure_closet/guncabinet/excursion/PopulateContents()
+	for(var/i in 1 to 4)
 		new /obj/item/gun/energy/frontier/locked(src)
-	for(var/i = 1 to 4)
-		new /obj/item/gun/energy/frontier/locked/holdout(src)
+	for(var/i in 1 to 4)
+		new /obj/item/gun/energy/frontier/locked/holdout
 
 // Used at centcomm for the elevator
 /obj/machinery/cryopod/robot/door/dorms
@@ -557,3 +571,21 @@ var/global/list/latejoin_tram   = list()
 	layer = ABOVE_WINDOW_LAYER
 /obj/structure/noticeboard
 	layer = ABOVE_WINDOW_LAYER
+
+//Labyrinth Away Missions
+/obj/structure/HonkMother
+	name = "The Honk Mother"
+	desc = "A monolithic effigy of the legendary Honk Mother, adorned with dazzling rainbow bananium."
+	icon = 'icons/effects/160x160.dmi'
+	pixel_x = -64
+
+/obj/structure/HonkMother/Apex
+	icon_state = "HonkMotherApex"
+
+/obj/structure/HonkMother/Base
+	icon_state = "HonkMotherBase"
+
+/obj/effect/decal/mecha_wreckage/honker/cluwne
+	name = "cluwne mech wreckage"
+	icon_state = "cluwne-broken"
+	desc = "Not so funny anymore."
