@@ -57,7 +57,7 @@
 
 /datum/map/tether
 	name = "Virgo"
-	full_name = "NSB Adephagia"
+	full_name = "NSB Crescent"
 	path = "tether"
 
 	use_overmap = TRUE
@@ -69,7 +69,7 @@
 	zlevel_datum_type = /datum/map_z_level/tether
 
 	lobby_icon = 'icons/misc/title_vr.dmi'
-	lobby_screens = list("tether2_night")
+	lobby_screens = list("crescent")
 	id_hud_icons = 'icons/mob/hud_jobs_vr.dmi'
 
 	holomap_smoosh = list(list(
@@ -80,7 +80,7 @@
 		Z_LEVEL_SPACE_MID,
 		Z_LEVEL_SPACE_HIGH))
 
-	station_name  = "NSB Adephagia"
+	station_name  = "NSB Crescent"
 	station_short = "Tether"
 	dock_name     = "Virgo-3B Colony"
 	dock_type     = "surface"
@@ -207,7 +207,7 @@
 // 	. +=  "The [full_name] is an ancient ruin turned workplace in the Virgo-Erigone System, deep in the midst of the Coreward Periphery.<br>"
 // 	. +=  "Humanity has spread across the stars and has met many species on similar or even more advanced terms than them - it's a brave new world and many try to find their place in it . <br>"
 // 	. +=  "Though Virgo-Erigone is not important for the great movers and shakers, it sees itself in the midst of the interests of a reviving alien species of the Zorren, corporate and subversive interests and other exciting dangers the Periphery has to face.<br>"
-// 	. +=  "As an employee or contractor of NanoTrasen, operators of the Adephagia and one of the galaxy's largest corporations, you're probably just here to do a job."
+// 	. +=  "As an employee or contractor of NanoTrasen, operators of the Crescent and one of the galaxy's largest corporations, you're probably just here to do a job."
 // 	return jointext(., "<br>")
 
 /datum/map/tether/perform_map_generation()
@@ -255,8 +255,8 @@
 // Overmap represetation of tether
 /obj/effect/overmap/visitable/sector/virgo3b
 	name = "Virgo 3B"
-	desc = "Full of phoron, and home to the NSB Adephagia, where you can dock and refuel your craft."
-	scanner_desc = @{"[i]Registration[/i]: NSB Adephagia
+	desc = "Full of phoron, and home to the NSB Crescent, where you can dock and refuel your craft."
+	scanner_desc = @{"[i]Registration[/i]: NSB Crescent
 [i]Class[/i]: Installation
 [i]Transponder[/i]: Transmitting (CIV), NanoTrasen IFF
 [b]Notice[/b]: NanoTrasen Base, authorized personnel only"}
