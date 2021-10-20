@@ -30,7 +30,7 @@
 /obj/item/stack/tile/grass
 	name = "grass tile"
 	singular_name = "grass floor tile"
-	desc = "A patch of grass like they often use on golf courses."
+	desc = "A patch of synthetic grass, for when you like nature but not really."
 	icon_state = "tile_grass"
 	force = 1.0
 	throwforce = 1.0
