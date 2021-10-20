@@ -131,13 +131,17 @@ var/list/flooring_types
 
 /decl/flooring/grass
 	name = "grass"
-	desc = "Do they smoke grass out in space, Bowie? Or do they smoke AstroTurf?"
+	desc = "Synthetic grass turf"
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_base = "grass"
 	has_base_range = 3
 	damage_temperature = T0C+80
 	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	build_type = /obj/item/stack/tile/grass
+	footstep_sounds = list("human" = list(
+		'sound/effects/footstep/grassy-footstep-1.ogg',
+		'sound/effects/footstep/grassy-footstep-2.ogg',
+		'sound/effects/footstep/grassy-footstep-3.ogg'))
 
 /decl/flooring/asteroid
 	name = "coarse sand"
@@ -307,6 +311,12 @@ var/list/flooring_types
 	can_paint = 1
 	build_type = /obj/item/stack/tile/linoleum
 	flags = TURF_REMOVE_SCREWDRIVER
+	footstep_sounds = list("human" = list(
+		'sound/effects/footstep/carpet1.ogg',
+		'sound/effects/footstep/carpet2.ogg',
+		'sound/effects/footstep/carpet3.ogg',
+		'sound/effects/footstep/carpet4.ogg',
+		'sound/effects/footstep/carpet5.ogg'))
 
 /decl/flooring/tiling/red
 	name = "floor"
