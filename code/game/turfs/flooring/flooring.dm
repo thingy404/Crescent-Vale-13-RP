@@ -131,7 +131,7 @@ var/list/flooring_types
 
 /decl/flooring/grass
 	name = "grass"
-	desc = "Synthetic grass turf"
+	desc = "Synthetic grass turf."
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_base = "grass"
 	has_base_range = 3
