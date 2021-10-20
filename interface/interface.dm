@@ -1,7 +1,7 @@
 //Please use mob or src (not usr) in these procs. This way they can be called in the same fashion as procs.
 /client/verb/wiki(query as text)
-	set name = "wiki"
-	set desc = "Type what you want to know about.  This will open the wiki on your web browser."
+	set name = "Legacy Wiki"
+	set desc = "Type what you want to know about.  This will open the wiki on your web browser. Some information may be outdated."
 	set category = "OOC"
 	if(config_legacy.wikiurl)
 		if(query)
@@ -17,7 +17,7 @@
 		return
 
 /client/verb/forum()
-	set name = "forum"
+	set name = "Forum"
 	set desc = "Visit the forum."
 	set hidden = 1
 	if( config_legacy.forumurl )
@@ -56,7 +56,7 @@
 
 /client/verb/github()
 	set name = "GitHub"
-	set desc = "Visit the GitHub"
+	set desc = "Visit the GitHub."
 	set hidden = 1
 
 	if(CONFIG_GET(string/githuburl))

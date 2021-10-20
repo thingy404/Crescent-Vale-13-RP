@@ -7,7 +7,7 @@
 		/datum/lore/codex/page/virgo_two,
 		/datum/lore/codex/page/virgo_three,
 		/datum/lore/codex/page/virgo_three_bee,
-		/datum/lore/codex/page/nsb_adephagia,
+		/datum/lore/codex/page/nsb_crescent,
 		/datum/lore/codex/page/virgo_central_command,
 		/datum/lore/codex/page/virgo_prime,
 		/datum/lore/codex/page/virgo_five,
@@ -131,10 +131,10 @@
 	designed to be a living habitat - its proximity to Virgo 3 makes transport of people and materials to and from \
 	the facility and the planet's stations via shuttle extremely cost-efficient."*/ // ToDo: ReDo.
 
-/datum/lore/codex/page/nsb_adephagia/add_content()
-	name = "NSB Adephagia (Space Elevator)"
-	keywords += list("NSB Adephagia", "Tether")
-	data = "Also known as the 'Tether', the NSB Adephagia is one of the most prominent installations in the [quick_link("Virgo-Erigone")] star system. \
+/datum/lore/codex/page/nsb_crescent/add_content()
+	name = "NSB Crescent (Space Elevator)"
+	keywords += list("NSB Crescent", "Tether")
+	data = "Also known as the 'Tether', the NSB Crescent is one of the most prominent installations in the [quick_link("Virgo-Erigone")] star system. \
 	Owned and operated by [quick_link("NanoTrasen")], the facility was built on [quick_link("Virgo-3B")] in 2561 to provide easy access to mining \
 	operations on the surface. Both phoron and alien artifacts are often found in the rocks, provoking substantial scientific interest into the moon's \
 	largely unknown history.\

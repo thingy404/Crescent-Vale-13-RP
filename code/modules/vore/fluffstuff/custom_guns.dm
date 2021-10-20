@@ -112,7 +112,7 @@
 // jertheace : Jeremiah 'Ace' Acacius
 /obj/item/gun/projectile/shotgun/pump/USDF/fluff/ace
 	name = "Ace's tactical shotgun" // D-model holds half as many shells as the normal version so as not OP as shit. Better than normal shotgun, worse than combat shotgun.
-	desc = "Owned by the respected (or feared?) veteran Captain of the original NSS Adephagia. Inscribed on the barrel are the words \"Speak softly, and carry a big stick.\""
+	desc = "Owned by the respected (or feared?) veteran Captain of the original NSS Crescent. Inscribed on the barrel are the words \"Speak softly, and carry a big stick.\""
 	ammo_type = /obj/item/ammo_casing/a12g/stunshell
 	max_shells = 6
 

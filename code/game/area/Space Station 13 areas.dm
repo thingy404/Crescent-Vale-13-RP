@@ -175,7 +175,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "shuttlered"
 
 /area/shuttle/administration/station
-	name = "NSB Adephagia (AS)"
+	name = "NSB Crescent (AS)"
 	icon_state = "shuttlered2"
 
 /area/shuttle/administration/transit
@@ -201,7 +201,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	base_turf = /turf/simulated/mineral/floor/ignore_mapgen
 
 /area/shuttle/awaymission/home
-	name = "NSB Adephagia (AM)"
+	name = "NSB Crescent (AM)"
 	icon_state = "shuttle2"
 
 /area/shuttle/awaymission/warp
@@ -366,7 +366,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "shuttle"
 
 /area/shuttle/awaymission/home
-	name = "NSB Adephagia (AM)"
+	name = "NSB Crescent (AM)"
 	icon_state = "shuttle2"
 
 /area/shuttle/awaymission/warp

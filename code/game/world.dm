@@ -346,7 +346,7 @@ GLOBAL_LIST(topic_status_cache)
 	s += " ("
 	s += "<a href=\"http://\">" //Change this to wherever you want the hub to link to.
 //	s += "[game_version]"
-	s += "Citadel"  //Replace this with something else. Or ever better, delete it and uncomment the game version.	CITADEL CHANGE - modifies hub entry to match main
+	s += "Crescent"  //Replace this with something else. Or ever better, delete it and uncomment the game version.	CITADEL CHANGE - modifies hub entry to match main
 	s += "</a>"
 	s += ")\]" //CITADEL CHANGE - encloses the server title in brackets to make the hub entry fancier
 	s += CONFIG_GET(string/tagline)

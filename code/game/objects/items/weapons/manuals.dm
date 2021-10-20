@@ -1848,7 +1848,7 @@
 				<hr>
 				<h2>Visitors</h2>
 
-				As our facilities are mainly located in fringe space on the frontier and often act as a gateway to the frontier; as well as some installations being near colonies, such as the NSB Adephagia visitors are expected and common.  There are two types of visitors, those that are pre-authorized and those that are not.
+				As our facilities are mainly located in fringe space on the frontier and often act as a gateway to the frontier; as well as some installations being near colonies, such as the NSB Crescent visitors are expected and common.  There are two types of visitors, those that are pre-authorized and those that are not.
 
 				Pre-authorized visitors are those that have notified the station in advance.  They are easily distinguished by possessing an ID card.  No special processing is needed for them.  Those that lack an ID are visitors who were not pre-authorized.<BR><BR>
 
@@ -2768,7 +2768,7 @@
 
 				Note that suggested changes should <b>not</b> be based on one specific post; they should account for stations and facilities all across NanoTrasen's corporate network. Site-specific rules may be employed for a particular location based on the needs and circumstances of that location. Internal Affairs Agents should ask and make note of any such rules that may contradict or add to these otherwise company-wide procedures.<BR><BR>
 
-				For one extreme example, the NSB Adephagia is equipped with state of the art experimental cloning facilities, and so the edition of Corporate Regulations issued to them is written with more lenient punishments for crew fatalities. Be aware of site-specific changes to the company's usual rules.<BR><BR>
+				For one extreme example, the NSB Crescent is equipped with state of the art experimental cloning facilities, and so the edition of Corporate Regulations issued to them is written with more lenient punishments for crew fatalities. Be aware of site-specific changes to the company's usual rules.<BR><BR>
 				<hr>
 				<h2>Applying for Permits</h2>
 

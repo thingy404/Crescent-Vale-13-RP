@@ -1,2 +1,2 @@
 /datum/config_entry/string/githuburl
-	config_entry_value = "https://www.github.com/Citadel-Station-13/Citadel-Station-13-RP"
+	config_entry_value = "https://github.com/Crescent-Vale-13/Crescent-Vale-13-RP"
