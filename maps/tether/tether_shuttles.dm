@@ -183,6 +183,10 @@
 	return 1
 */
 
+
+
+
+/*
 ////////////////////////////////////////
 //////// Excursion Shuttle /////////////
 ////////////////////////////////////////
@@ -283,3 +287,6 @@
 /obj/machinery/computer/shuttle_control/explore/securiship
 	name = "short jump console"
 	shuttle_tag = "Securiship Shuttle"
+
+
+	*/

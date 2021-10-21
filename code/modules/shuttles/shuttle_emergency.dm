@@ -4,8 +4,10 @@
 
 /datum/shuttle/autodock/ferry/emergency/New()
 	..()
+
 	if(SSemergencyshuttle.shuttle)
 		CRASH("An emergency shuttle has already been defined.")
+
 	SSemergencyshuttle.shuttle = src
 
 /datum/shuttle/autodock/ferry/emergency/arrived()
@@ -65,7 +67,11 @@
 	return ..()
 
 /datum/shuttle/autodock/ferry/emergency/launch(var/user)
-	if (!can_launch(user)) return
+	if (!can_launch(user))
+		priority_announcement.Announce("The emergency shuttle has failed to launch.  You're on your own.")
+
+		log_debug("!canlaunch emergency/launch")
+		return
 
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	// If we were given a command by an emergency shuttle console
 		if (SSemergencyshuttle.autopilot)

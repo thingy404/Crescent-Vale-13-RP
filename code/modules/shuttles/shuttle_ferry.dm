@@ -12,12 +12,18 @@
 /datum/shuttle/autodock/ferry/New(var/_name)
 	if(landmark_station)
 		landmark_station = SSshuttle.get_landmark(landmark_station)
+		if(!landmark_station)
+			log_shuttle("Shuttle [_name] failed to find its landmark_station")
 	if(landmark_offsite)
 		landmark_offsite = SSshuttle.get_landmark(landmark_offsite)
+		if(!landmark_offsite)
+			log_shuttle("Shuttle [_name] failed to find its landmark_offsite")
 
 	..(_name, get_location_waypoint(location))
 
 	next_location = get_location_waypoint(!location)
+	if(!next_location)
+		log_shuttle("Shuttle [_name]/[src] failed to establish next_location")
 
 // Gets the shuttle landmark associated with the given location (defaults to current location)
 /datum/shuttle/autodock/ferry/proc/get_location_waypoint(location_id = null)

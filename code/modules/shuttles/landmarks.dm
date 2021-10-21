@@ -74,14 +74,17 @@
 
 /obj/effect/shuttle_landmark/proc/is_valid(var/datum/shuttle/shuttle)
 	if(shuttle.current_location == src)
+		log_shuttle("is_valid false - trying to go to the same place!")
 		return FALSE
 	for(var/area/A in shuttle.shuttle_area)
 		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
 		if(check_collision(base_area, list_values(translation)))
+			log_shuttle("is_valid false - collision!")
 			return FALSE
 	var/conn = GetConnectedZlevels(z)
 	for(var/w in (z - shuttle.multiz) to z)
 		if(!(w in conn))
+			log_shuttle("is_valid false - not connected in z-levels")
 			return FALSE
 	return TRUE
 
@@ -109,10 +112,13 @@
 	for(var/target_turf in target_turfs)
 		var/turf/target = target_turf
 		if(!target)
+			log_shuttle("Collision with edge of map")
 			return TRUE	// Collides with edge of map
 		if(target.loc != target_area)
+			log_shuttle("Collision with another area")
 			return TRUE	// Collides with another area
 		if(target.density)
+			log_shuttle("Collision with dense turf")
 			return TRUE	// Dense turf
 	return FALSE
 

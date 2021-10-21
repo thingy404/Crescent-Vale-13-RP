@@ -13,24 +13,22 @@
 #define Z_LEVEL_SPACE_HIGH					7
 #define Z_LEVEL_SURFACE_MINE				8
 #define Z_LEVEL_SOLARS						9
-#define Z_LEVEL_CENTCOM						10
-#define Z_LEVEL_MISC						11
-#define Z_LEVEL_SHIPS						12
-#define Z_LEVEL_UNDERDARK					13
-#define Z_LEVEL_ALIENSHIP					14
-#define Z_LEVEL_PLAINS						15
-#define Z_LEVEL_OFFMAP1						16
-#define Z_LEVEL_OFFMAP2						17
-#define Z_LEVEL_ROGUEMINE_1					18
-#define Z_LEVEL_ROGUEMINE_2					19
-#define Z_LEVEL_BEACH						20
-#define Z_LEVEL_BEACH_CAVE					21
-#define Z_LEVEL_DESERT						22
-#define Z_LEVEL_AEROSTAT					23
-#define Z_LEVEL_AEROSTAT_SURFACE			24
-#define Z_LEVEL_DEBRISFIELD					25
-#define Z_LEVEL_FUELDEPOT					26
-#define Z_LEVEL_GATEWAY						27
+//#define Z_LEVEL_CENTCOM						10
+#define Z_LEVEL_MISC						10
+#define Z_LEVEL_UNDERDARK					11
+#define Z_LEVEL_PLAINS						12
+#define Z_LEVEL_OFFMAP1						13
+#define Z_LEVEL_OFFMAP2						14
+#define Z_LEVEL_ROGUEMINE_1					15
+#define Z_LEVEL_ROGUEMINE_2					16
+#define Z_LEVEL_BEACH						17
+#define Z_LEVEL_BEACH_CAVE					18
+#define Z_LEVEL_DESERT						19
+#define Z_LEVEL_AEROSTAT					20
+#define Z_LEVEL_AEROSTAT_SURFACE			21
+#define Z_LEVEL_DEBRISFIELD					22
+#define Z_LEVEL_FUELDEPOT					23
+#define Z_LEVEL_GATEWAY						24
 
 //Camera networks
 #define NETWORK_TETHER "Tether"
@@ -166,7 +164,7 @@
 		)
 
 	lateload_z_levels = list(
-		list("Tether - Misc","Tether - Ships","Tether - Underdark"), //Stock Tether lateload maps
+		list("Tether - Misc","Tether - Underdark"), //Stock Tether lateload maps
 		list("Alien Ship - Z1 Ship"),
 		list("Desert Planet - Z1 Beach","Desert Planet - Z2 Cave"),
 		list("Remmi Aerostat - Z1 Aerostat","Remmi Aerostat - Z2 Surface")
@@ -183,9 +181,9 @@
 		Z_LEVEL_SPACE_HIGH,
 		Z_LEVEL_SURFACE_MINE,
 		Z_LEVEL_SOLARS,
-		Z_LEVEL_CENTCOM,
+	//	Z_LEVEL_CENTCOM,
 		Z_LEVEL_MISC,
-		Z_LEVEL_SHIPS,
+	//	Z_LEVEL_SHIPS,
 		Z_LEVEL_BEACH
 		)
 
@@ -234,7 +232,7 @@
 /datum/map/tether/get_map_levels(var/srcz, var/long_range = TRUE)
 	if (long_range && (srcz in map_levels))
 		return map_levels
-	else if (srcz == Z_LEVEL_SHIPS || srcz == Z_LEVEL_MISC)
+	else if (/*srcz == Z_LEVEL_SHIPS || */ srcz == Z_LEVEL_MISC)
 		return list() //no longer return signals in key transit levels, this means some runtimes from CWCs but
 	else if (srcz >= Z_LEVEL_SURFACE_LOW && srcz <= Z_LEVEL_SPACE_HIGH)
 		return list(
@@ -501,7 +499,7 @@ Allignment: Neutral to NanoTrasen. No Discount for services expected."}
 	name = "Solar Field"
 	flags = MAP_LEVEL_CONTACT|MAP_LEVEL_PLAYER
 	base_turf = /turf/simulated/floor/outdoors/rocks/virgo3b
-
+/*
 /datum/map_z_level/tether/colony
 	z = Z_LEVEL_CENTCOM
 	name = "Colony"
@@ -511,7 +509,7 @@ Allignment: Neutral to NanoTrasen. No Discount for services expected."}
 	z = Z_LEVEL_SHIPS
 	name = "Misc"
 	flags = MAP_LEVEL_ADMIN|MAP_LEVEL_XENOARCH_EXEMPT
-
+*/
 /datum/map_z_level/tether/misc
 	z = Z_LEVEL_MISC
 	name = "Misc"

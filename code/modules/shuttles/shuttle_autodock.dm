@@ -42,6 +42,8 @@
 	// Optional transition area
 	if(landmark_transition)
 		landmark_transition = SSshuttle.get_landmark(landmark_transition)
+		if(!landmark_transition)
+			log_shuttle("Failed to find landmark transition for shuttle [src.name]")
 
 /datum/shuttle/autodock/Destroy()
 	in_use = null
@@ -163,7 +165,24 @@
 	Guards - (These don't take docking status into account, just the state machine and move safety)
 */
 /datum/shuttle/autodock/proc/can_launch()
-	return (next_location && next_location.is_valid(src) && !current_location.cannot_depart(src) && moving_status == SHUTTLE_IDLE && !in_use)
+	if(!next_location)
+		log_shuttle("can_launch 0 - no next location")
+		return 0
+	else if(!next_location.is_valid(src))
+		log_shuttle("can_launch 0 - next location is invalid")
+		return 0
+	else if (current_location.cannot_depart(src))
+		log_shuttle("can_launch 0 - cannot depart")
+		return 0
+	else if (moving_status != SHUTTLE_IDLE)
+		log_shuttle("can_launch 0 - shuttle is not idle")
+		return 0
+	else if (in_use)
+		log_shuttle("can_launch 0 - shuttle is in use")
+		return 0
+	else
+		return 1
+
 
 /datum/shuttle/autodock/proc/can_force()
 	return (next_location && next_location.is_valid(src) && !current_location.cannot_depart(src) && moving_status == SHUTTLE_IDLE && process_state == WAIT_LAUNCH)
@@ -176,7 +195,9 @@
 */
 // Queue shuttle for undock and launch by shuttle subsystem.
 /datum/shuttle/autodock/proc/launch(var/user)
-	if (!can_launch()) return
+	if (!can_launch())
+		log_debug("!canlaunch shuttle/autodoc/launch")
+		return
 
 	in_use = user	// Obtain an exclusive lock on the shuttle
 

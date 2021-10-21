@@ -69,7 +69,8 @@
 
 		var/turf/target = locate(dst_origin.x + x_pos, dst_origin.y + y_pos, dst_origin.z + z_pos)
 		if(!target)
-			log_debug("Null turf in translation @ ([dst_origin.x + x_pos], [dst_origin.y + y_pos], [dst_origin.z + z_pos])")
+			log_debug("Null turf in translation @ ([dst_origin.x + x_pos], [dst_origin.y + y_pos], [dst_origin.z + z_pos]|[dst_origin.z],[z_pos])")
+			log_debug("source.z = [source.z], src_origin.z = [src_origin.z]")
 		turf_map[source] = target	// If target is null, preserve that information in the turf map
 
 	return turf_map

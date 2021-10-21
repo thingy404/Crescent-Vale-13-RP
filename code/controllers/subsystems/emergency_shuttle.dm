@@ -212,11 +212,19 @@ SUBSYSTEM_DEF(emergencyshuttle)
 
 //returns 1 if the shuttle is currently in transit (or just leaving) to the station
 /datum/controller/subsystem/emergencyshuttle/proc/going_to_station()
-	return shuttle && (!shuttle.direction && shuttle.moving_status != SHUTTLE_IDLE)
+	if(!shuttle)
+		log_debug("No shuttle in going_to_station")
+		return 0
+	else
+		return shuttle && (!shuttle.direction && shuttle.moving_status != SHUTTLE_IDLE)
 
 //returns 1 if the shuttle is currently in transit (or just leaving) to centcom
 /datum/controller/subsystem/emergencyshuttle/proc/going_to_centcom()
-	return shuttle && (shuttle.direction && shuttle.moving_status != SHUTTLE_IDLE)
+	if(!shuttle)
+		log_debug("No shuttle in going_to_centcom")
+		return 0
+	else
+		return shuttle && (shuttle.direction && shuttle.moving_status != SHUTTLE_IDLE)
 
 
 /datum/controller/subsystem/emergencyshuttle/proc/get_status_panel_eta()
