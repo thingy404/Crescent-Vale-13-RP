@@ -1663,6 +1663,12 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "bar"
 	sound_env = LARGE_SOFTFLOOR
 
+/area/crew_quarters/bar/private1
+	name = "Private Booth 1"
+
+/area/crew_quarters/bar/private2
+	name = "Private Booth 2"
+
 /area/crew_quarters/barrestroom
 	name = "\improper Cafeteria Restroom"
 	icon_state = "bar"
