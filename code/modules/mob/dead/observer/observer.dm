@@ -457,6 +457,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, "<span class='warning'>Spawning as a mouse is currently disabled.</span>")
 		return
 
+	if(!BC_IsKeyAllowedToConnect(usr.ckey) && !usr.client.holder)
+		usr  << SPAN_DANGER("Border Control is enabled, and you haven't been whitelisted!  You're welcome to observe, \
+			    but in order to play, you'll need to be whitelisted!  Please visit our discord to submit an access request!")
+		return
+
 	if(!MayRespawn(1))
 		return
 

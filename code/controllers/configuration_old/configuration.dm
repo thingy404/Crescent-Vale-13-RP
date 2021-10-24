@@ -116,6 +116,7 @@
 	var/panic_bunker = 0
 	var/panic_bunker_message = "Sorry, this server is not accepting connections from never seen before players."
 	var/paranoia_logging = 0
+	var/borderControl = 0
 
 	var/ip_reputation = FALSE		//Should we query IPs to get scores? Generates HTTP traffic to an API service.
 	var/ipr_email					//Left null because you MUST specify one otherwise you're making the internet worse.
@@ -355,6 +356,9 @@
 
 				if ("debug_paranoid")
 					config_legacy.debugparanoid = 1
+
+				if ("border_control")
+					config_legacy.borderControl = text2num(value)
 
 				if ("log_admin")
 					config_legacy.log_admin = 1

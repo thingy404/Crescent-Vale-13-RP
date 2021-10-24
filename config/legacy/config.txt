@@ -455,3 +455,10 @@ ENGINE_MAP Supermatter Engine,Edison's Bane
 ## Uncomment to allow specific solar control computers to set themselves up.
 ## This requires solar controller computers in the map to be set up to use it, with the auto_start variable.
 # AUTOSTART_SOLARS
+
+
+## If the server only accepts whitelisted connections
+## 0 Disables Border Control
+## 1 Puts Border Control into 'learning mode' and will have it automatically whitelist new connections
+## 2 Puts Border Control into 'enforcing mode' and will have it deny connections that are not already whitelisted.
+BORDER_CONTROL 0

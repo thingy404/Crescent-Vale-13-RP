@@ -227,7 +227,12 @@
 
 	if(href_list["ready"])
 		if(!SSticker || SSticker.current_state <= GAME_STATE_PREGAME)	// Make sure we don't ready up after the round has started
-			ready = text2num(href_list["ready"])
+			if(!BC_IsKeyAllowedToConnect(ckey) && !usr.client.holder)
+				alert("Border Control is enabled, and you haven't been whitelisted!  You're welcome to observe, \
+					   but in order to play, you'll need to be whitelisted!  Please visit our discord to submit an access request!" , "Border Control Active")
+				ready = 0
+			else
+				ready = text2num(href_list["ready"])
 		else
 			ready = 0
 
@@ -297,6 +302,12 @@
 					src << alert("You are currently not whitelisted to Play [client.prefs.species].")
 					return 0
 */
+
+		if(!BC_IsKeyAllowedToConnect(ckey) && !usr.client.holder)
+			alert("Border Control is enabled, and you haven't been whitelisted!  You're welcome to observe, \
+				   but in order to play, you'll need to be whitelisted!  Please visit our discord to submit an access request!" , "Border Control Active")
+			return 0
+
 		LateChoices()
 
 	if(href_list["manifest"])
@@ -326,6 +337,11 @@
 		if(!(S.spawn_flags & SPECIES_CAN_JOIN))
 			src << alert("Your current species, [client.prefs.species], is not available for play on the station.")
 			return 0
+
+		if(!BC_IsKeyAllowedToConnect(ckey) && !usr.client.holder)
+			alert("Border Control is enabled, and you haven't been whitelisted!  You're welcome to observe, \
+					but in order to play, you'll need to be whitelisted!  Please visit our discord to submit an access request!)" , "Border Control Active")
+			return FALSE
 
 		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
 		return
