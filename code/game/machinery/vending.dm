@@ -461,6 +461,10 @@
 		add_fingerprint(usr)
 		SSnanoui.update_uis(src)
 
+/obj/machinery/vending/proc/postvend_effect()
+	playsound(src, 'sound/items/vending.ogg', 50, 1, 1)
+	return 1
+
 /obj/machinery/vending/proc/vend(datum/stored_item/vending_product/R, mob/user)
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course
@@ -499,14 +503,13 @@
 		flick(icon_vend,src)
 	spawn(vend_delay)
 		R.get_product(get_turf(src))
+		src.postvend_effect()
 		if(has_logs)
 			do_logging(R, user, 1)
 		if(prob(1))
 			sleep(3)
 			if(R.get_product(get_turf(src)))
 				visible_message("<span class='notice'>\The [src] clunks as it vends an additional item.</span>")
-
-		playsound(src, 'sound/items/vending.ogg', 50, 1, 1)
 
 		status_message = ""
 		status_error = 0
@@ -1201,6 +1204,36 @@
 					/obj/item/storage/box/wormcan = 12,
 					/obj/item/material/fishing_net = 40,
 					/obj/item/stack/cable_coil/random = 4)
+
+/obj/machinery/vending/fortune
+	name = "The Great Zoltan"
+	desc = "An archaic fortune teller machine. It looks recently refurbished."
+	product_slogans = "Ha ha ha ha ha!;I am the great wizard Zoltan!;Learn your fate!"
+	product_ads = "Pick a card, any card..."
+	icon = 'icons/obj/vending_vr.dmi'
+	icon_state = "fortuneteller"
+	icon_vend = "fortuneteller-vend"
+	products = list(/obj/item/paper/fortune = 50)
+	prices = list(/obj/item/paper/fortune = 10)
+
+/obj/machinery/vending/fortune/postvend_effect()
+	playsound(loc, 'sound/machines/fortune_riff.ogg', 100, 1)
+	return
+
+/obj/machinery/vending/fortune/cursed
+	name = "The Mighty Natloz"
+	desc = "An archaic fortune teller machine. Something doesn't seem right here."
+	product_slogans = "┤Ö≈₧╥╒√;╛¿èδΣ"
+	product_ads = "┤Ö≈₧╥╒√;╛¿èδΣ"
+	icon = 'icons/obj/vending_vr.dmi'
+	icon_state = "deathteller"
+	icon_vend = "deathteller-vend"
+	products = list(/obj/item/paper/misfortune = 66)
+	prices = list(/obj/item/paper/misfortune = 10)
+
+/obj/machinery/vending/fortune/cursed/postvend_effect()
+	playsound(loc, 'sound/machines/fortune_riff_broken.ogg', 100, 1)
+	return
 
 //Port of _vr file
 //Tweaked existing vendors
