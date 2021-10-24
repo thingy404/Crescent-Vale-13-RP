@@ -247,6 +247,18 @@
 /obj/structure/flora/tree/jungle/choose_icon_state()
 	return "[base_state][rand(1, 6)]"
 
+/obj/structure/flora/tree/cherry
+	icon = 'icons/obj/flora/jungletree.dmi'
+	icon_state = "cherrytree"
+	base_state = "cherrytree"
+	product = /obj/item/stack/material/log
+	product_amount = 20
+	health = 800
+	max_health = 800
+	pixel_x = -48
+	pixel_y = -16
+	shake_animation_degrees = 1
+
 // Sif trees
 
 /datum/category_item/catalogue/flora/sif_tree

@@ -82,6 +82,104 @@
 		info = parsepencode(info)
 		return
 
+/obj/item/paper/fortune
+	name = "fortune card"
+	info = "YOUR FORTUNE"
+	icon_state = "fortunecard"
+	desc = "A small card emblazoned with the wisdom of Zoltan."
+
+	var/list/fortune_read = list("beheld","determined","discovered","exposed","foreseen","observed","read","unveiled","witnessed")
+
+	var/list/fortune_mystical = list("fortune","fate","future","destiny")
+
+	var/list/fortune_adjectives = list("grumpy","zesty","omniscient","golden","mystical","forgotten","lost","ancient","metal","brass",
+	"eldritch","warped","frozen","martian","robotic","burning","copper","dead","undying","unholy","fabulous","mighty",
+	"elder","hellish","heavenly","antiquated","automated","mechanical","dread","grotesque","mysterious","auspicious",
+	"screaming","rusted","iron","scary","terrifying","horrid","antique","austere","burly","dapper","dutiful",
+	"enlightened","fearless","gleaming","glowing","grim","gray","gruesome","handsome","hideous","horrible",
+	"ill-fated","star-crossed","impure","jaunty","nocturnal","metallic","monstrous","marvelous","prestigious",
+	"quaint","radiant","robust","regal","shameful","shimmering","silent","silver","sinful","smug","tragic",
+	"terrible","terrific","vast","weird","electrical","technicolor","quantum","heroic","villainous","dastardly","evil",
+	"enchanted","accursed","haunted","malicious","macabre","sinister","mortal","immortal","sacred","eerie",
+	"ethereal","inscrutable","lewd","stygian","tarnished","odd","subterranean","cthonic","alien","aberrant","ashen",
+	"baleful","beastly","anomalous","angular","colorless","cosmic","cyclopean","dank","diabolical","elusive","solemn",
+	"endless","enigmatical","festering","faceless","strange","foetid","ghoulish","infernal","kaleidoscopic",
+	"nameless","obscene","pagan","holy","pallid","pale","putrid","quivering","reptilian","sepulchral","sightless",
+	"unseen","doomed","loathsome","demonic","luminous","spooky","eternal","saintly","benighted","beautiful","skeletal",
+	"magical","arcane","rotted","rude","crusty","divine","mercurial","blasted","damned","blessed","blazing","bumbling",
+	"wailing","unspeakable","melancholy","insectoid","infested","lurid","incomprehensible","vile","amorphous","antediluvian",
+	"weeping","moist","grody","unutterable","lurking","immemorial","blasphemous","nebulous","shadowy","obscure","outer","tenebrous",
+	"gloomy","murky","lightless","dismal","unlit","attuned","ghastly","lugubrious","desolate","doleful","baleful","menacing",
+	"dark","cold","lumpy","rotund","burly","buff","fleshy","ornate","imposing","false","fancy","elegant","creepy",
+	"quirky","unnerving","abnormal","peculiar","astral","chaotic","spherical","swirling","deathless","archaic",
+	"atomic","elemental","invisible","awesome","awful","apocalyptic","righteous")
+
+	var/list/fortune = list("An impulsive decision will bring rewards, but with it, complications.",
+	"Temptation may prove too much for you to handle.",
+	"You are the subject of some gossip, but can turn it to your advantage.",
+	"The difficulties in your life will be overcome through a little imagination.",
+	"Looking out for your friends will prove especially important soon.",
+	"You will soon find great fortune, but at great cost.",
+	"Remember that this is the time to pull together, not push apart.",
+	"Concern yourself with worries of the emotional rather than financial kind.",
+	"Try not to push too hard. Express yourself with measure.",
+	"Thinking outside of the box will show an exciting new opportunity.",
+	"You will soon find ample time to make the most of things.",
+	"This may be the perfect time to try something new and unusual.",
+	"That old saying applies - every cloud has a silver lining.",
+	"Romance will blossom with someone you met through work recently.",
+	"Maintaining some familiar habits may soon prove beneficial.",
+	"Prepare to receive a visit by someone from the distant past.",
+	"Disappointment looms, but stay strong by remaining true to yourself.",
+	"Take comfort from the fact that everyone is in the same boat.",
+	"A heart-to-heart with a recent enemy will foster greater understanding.",
+	"Look on the bright side: maybe it'll be quick and painless.",
+	"Well, I wouldn't want to be in your shoes.")
+
+/obj/item/paper/fortune/New()
+		info = "YOUR FORTUNE\n\nThe great and [pick(fortune_adjectives)] Zoltan has [pick(fortune_read)] your [pick(fortune_mystical)]!\n\n[pick(fortune)]"
+		return ..() // moving the
+
+/obj/item/paper/fortune/update_icon()
+	if(info)
+		icon_state = "fortunecard"
+	else
+		icon_state = "fortunecard"
+	return
+
+/obj/item/paper/misfortune
+	name = "misfortune card"
+	desc = "A small card emblazoned with the wisdom of Natloz."
+	icon_state = "misfortunecard"
+
+	var/list/misfortune = list("SMASHED BY SHUTTLE",
+	"CRUSHED BY ELEVATOR",
+	"MELTED BY MAGLEV",
+	"FALL FROM GREAT HEIGHT",
+	"DROWNED BY SPACE",
+	"STARVATION IN WILDERNESS",
+	"ABANDONED IN DARK PLACE",
+	"ENTOMBED BY WALLS",
+	"POISONED BY PHORON",
+	"BLUDGEONED BY TOOL",
+	"SHOT BY GUN",
+	"DISSECTED WHILE CONSCIOUS",
+	"INCINERATED BY FLAMETHROWER",
+	"GIVEN DEATH SENTENCE",
+	"BETRAYED BY ALLY",
+	"TORTURED BY ENEMY")
+
+/obj/item/paper/misfortune/New()
+		info = "NATLOZ SEES YOUR END\n\n\n\n[pick(misfortune)]"
+		return ..() // moving the
+
+/obj/item/paper/misfortune/update_icon()
+	if(info)
+		icon_state = "misfortunecard"
+	else
+		icon_state = "misfortunecard"
+	return
+
 /obj/item/paper/alien
 	name = "alien tablet"
 	desc = "It looks highly advanced"

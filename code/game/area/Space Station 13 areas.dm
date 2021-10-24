@@ -2370,8 +2370,13 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "riot_control"
 
 /area/security/detectives_office
-	name = "\improper Security - Forensic Office"
+	name = "\improper Security - Detective Office"
 	icon_state = "detective"
+	sound_env = MEDIUM_SOFTFLOOR
+
+/area/security/detectives_lab
+	name = "\improper Security - Forensic Laboratory"
+	icon_state = "evidence_storage"
 	sound_env = MEDIUM_SOFTFLOOR
 
 /area/security/range

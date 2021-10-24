@@ -1334,6 +1334,10 @@
 	name = "\improper Secondary Command Substation"
 	icon_state = "substation"
 
+/area/maintenance/station/strangemaint
+	name = "\improper Strange Maintenance"
+	forced_ambience = list('sound/ambience/darkness.ogg')
+
 /area/shuttle/tether/crash1
 	name = "\improper Crash Site 1"
 	icon_state = "shuttle2"

@@ -510,6 +510,18 @@
 	name = "SECTION IV"
 	icon_state = "sec4"
 
+/obj/structure/sign/anatomy
+	icon = 'icons/obj/decals_vr.dmi'
+	desc = "A diagram illustrating a typical humanoid structure."
+	name = "anatomy chart"
+	icon_state = "anatomy"
+
+/obj/structure/sign/forensic
+	icon = 'icons/obj/decals_vr.dmi'
+	desc = "A chart showcasing proper forensic techniques."
+	name = "forensic chart"
+	icon_state = "forensics"
+
 /obj/structure/sign/nanotrasen
 	icon = 'icons/obj/decals_vr.dmi'
 	name = "\improper NanoTrasen"
