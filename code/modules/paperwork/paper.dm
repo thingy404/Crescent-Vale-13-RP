@@ -170,7 +170,7 @@
 	"TORTURED BY ENEMY")
 
 /obj/item/paper/misfortune/New()
-		info = "NATLOZ SEES\n\n\n\n[pick(misfortune)]"
+		info = "NATLOZ SEES YOUR END\n\n\n\n[pick(misfortune)]"
 		return ..() // moving the
 
 /obj/item/paper/misfortune/update_icon()
