@@ -4,31 +4,31 @@
 #define VIRGO3B_TURF_CREATE_UN(x)	x/virgo3b/initial_gas_mix=ATMOSPHERE_ID_VIRGO3B
 
 //Normal map defs
-#define Z_LEVEL_SURFACE_LOW					1
-#define Z_LEVEL_SURFACE_MID					2
-#define Z_LEVEL_SURFACE_HIGH				3
-#define Z_LEVEL_TRANSIT						4
-#define Z_LEVEL_SPACE_LOW					5
-#define Z_LEVEL_SPACE_MID					6
-#define Z_LEVEL_SPACE_HIGH					7
-#define Z_LEVEL_SURFACE_MINE				8
-#define Z_LEVEL_SOLARS						9
+#define Z_LEVEL_SURFACE_LOW					2
+#define Z_LEVEL_SURFACE_MID					3
+#define Z_LEVEL_SURFACE_HIGH				4
+#define Z_LEVEL_TRANSIT						5
+#define Z_LEVEL_SPACE_LOW					6
+#define Z_LEVEL_SPACE_MID					7
+#define Z_LEVEL_SPACE_HIGH					8
+#define Z_LEVEL_SURFACE_MINE				9
+#define Z_LEVEL_SOLARS						10
 //#define Z_LEVEL_CENTCOM						10
-#define Z_LEVEL_MISC						10
-#define Z_LEVEL_UNDERDARK					11
-#define Z_LEVEL_PLAINS						12
-#define Z_LEVEL_OFFMAP1						13
-#define Z_LEVEL_OFFMAP2						14
-#define Z_LEVEL_ROGUEMINE_1					15
-#define Z_LEVEL_ROGUEMINE_2					16
-#define Z_LEVEL_BEACH						17
-#define Z_LEVEL_BEACH_CAVE					18
-#define Z_LEVEL_DESERT						19
-#define Z_LEVEL_AEROSTAT					20
-#define Z_LEVEL_AEROSTAT_SURFACE			21
-#define Z_LEVEL_DEBRISFIELD					22
-#define Z_LEVEL_FUELDEPOT					23
-#define Z_LEVEL_GATEWAY						24
+#define Z_LEVEL_MISC						11
+#define Z_LEVEL_UNDERDARK					12
+#define Z_LEVEL_PLAINS						13
+#define Z_LEVEL_OFFMAP1						14
+#define Z_LEVEL_OFFMAP2						15
+#define Z_LEVEL_ROGUEMINE_1					16
+#define Z_LEVEL_ROGUEMINE_2					17
+#define Z_LEVEL_BEACH						18
+#define Z_LEVEL_BEACH_CAVE					19
+#define Z_LEVEL_DESERT						20
+#define Z_LEVEL_AEROSTAT					21
+#define Z_LEVEL_AEROSTAT_SURFACE			22
+#define Z_LEVEL_DEBRISFIELD					23
+#define Z_LEVEL_FUELDEPOT					24
+#define Z_LEVEL_GATEWAY						25
 
 //Camera networks
 #define NETWORK_TETHER "Tether"
@@ -390,7 +390,7 @@ Allignment: Neutral to NanoTrasen. No Discount for services expected."}
 	announce_atc(AM,going = TRUE)
 
 /obj/effect/overmap/visitable/sector/virgo3b/get_space_zlevels()
-	return list(Z_LEVEL_SPACE_LOW, Z_LEVEL_SPACE_HIGH)
+	return list(Z_LEVEL_SPACE_LOW, Z_LEVEL_SPACE_MID, Z_LEVEL_SPACE_HIGH)
 
 /obj/effect/overmap/visitable/sector/virgo3b/proc/announce_atc(var/atom/movable/AM, var/going = FALSE)
 	var/message = "Sensor contact for vessel '[AM.name]' has [going ? "left" : "entered"] ATC control area."
