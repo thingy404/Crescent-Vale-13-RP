@@ -253,3 +253,11 @@ Barricades
 		s.start()
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return 1
+
+/obj/structure/stage_edge
+	name = "stage edge"
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "stageedge"
+	density = 1
+	anchored = 1
+	dir = NORTH

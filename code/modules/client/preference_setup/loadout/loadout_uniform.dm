@@ -6,7 +6,7 @@
 	sort_category = "Uniforms and Casual Dress"
 
 /datum/gear/uniform/blazerskirt
-	name = "Blazer - Skirt "
+	name = "Blazer - Skirt"
 	path = /obj/item/clothing/under/blazer/skirt
 
 /datum/gear/uniform/cheongsam
@@ -440,14 +440,6 @@
 /datum/gear/uniform/ascetic
 	name = "Plain Ascetic Garb"
 	path = /obj/item/clothing/under/ascetic
-
-/datum/gear/uniform/pleated
-	name = "Pleated Skirt"
-	path = /obj/item/clothing/under/skirt/pleated
-
-/datum/gear/uniform/pleated/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/uniform/lilacdress
 	name = "Lilac Dress"

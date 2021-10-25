@@ -99,6 +99,12 @@
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
 
+/turf/simulated/floor/paving
+	name = "stone paving"
+	icon = 'icons/turf/flooring/grass.dmi'
+	icon_state = "paving"
+	initial_flooring = /decl/flooring/tiling/paving
+
 /turf/simulated/floor/tiled
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles_vr.dmi'
