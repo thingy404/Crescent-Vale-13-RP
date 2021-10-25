@@ -136,7 +136,7 @@ var/list/flooring_types
 	icon_base = "grass"
 	has_base_range = 3
 	damage_temperature = T0C+80
-	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
+	flags = TURF_REMOVE_SHOVEL
 	build_type = /obj/item/stack/tile/grass
 	footstep_sounds = list("human" = list(
 		'sound/effects/footstep/grassy-footstep-1.ogg',
@@ -328,6 +328,13 @@ var/list/flooring_types
 /decl/flooring/tiling/steel
 	name = "floor"
 	icon_base = "steel"
+	build_type = /obj/item/stack/tile/floor/steel
+
+/decl/flooring/tiling/paving
+	name = "stone paving"
+	desc = "A stone path. Synthetic and actually steel."
+	icon = 'icons/turf/flooring/grass.dmi'
+	icon_base = "paving"
 	build_type = /obj/item/stack/tile/floor/steel
 
 /decl/flooring/tiling/steel_dirty

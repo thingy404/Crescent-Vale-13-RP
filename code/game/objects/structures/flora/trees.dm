@@ -248,6 +248,8 @@
 	return "[base_state][rand(1, 6)]"
 
 /obj/structure/flora/tree/cherry
+	name = "sakura tree"
+	desc = "Also known as cherry blossom. The centerpiece of this synthetic garden."
 	icon = 'icons/obj/flora/jungletree.dmi'
 	icon_state = "cherrytree"
 	base_state = "cherrytree"
