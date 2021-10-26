@@ -164,11 +164,20 @@
 		)
 
 	lateload_z_levels = list(
-		list("Tether - Misc","Tether - Underdark"), //Stock Tether lateload maps
-		list("Alien Ship - Z1 Ship"),
-		list("Desert Planet - Z1 Beach","Desert Planet - Z2 Cave"),
-		list("Remmi Aerostat - Z1 Aerostat","Remmi Aerostat - Z2 Surface")
-	)
+		list("Tether - Misc","Tether - Underdark","Tether - Plains"), //Stock Tether lateload maps
+		list("Offmap Ship - Talon Z1","Offmap Ship - Talon Z2"),
+		list("Asteroid Belt 1","Asteroid Belt 2"),
+		list("Desert Planet - Z1 Beach","Desert Planet - Z2 Cave","Desert Planet - Z3 Desert"),
+		list("Remmi Aerostat - Z1 Aerostat","Remmi Aerostat - Z2 Surface"),
+		list("Debris Field - Z1 Space"),
+		list("Fuel Depot - Z1 Space")
+		)
+
+	lateload_single_pick = list(
+		//list("Carp Farm"),
+		//list("Snow Field"),
+		//list("Listening Post")
+		)
 
 	ai_shell_restricted = TRUE
 	ai_shell_allowed_levels = list(
@@ -225,7 +234,7 @@
 		Z_LEVEL_SURFACE_HIGH,
 		Z_LEVEL_SURFACE_MINE,
 		Z_LEVEL_SOLARS,
-		//Z_LEVEL_PLAINS
+		Z_LEVEL_PLAINS
 	)
 
 /datum/skybox_settings/tether
@@ -497,7 +506,7 @@ Allignment: Neutral to NanoTrasen. No Discount for services expected."}
 	name = "Misc"
 	flags = MAP_LEVEL_ADMIN|MAP_LEVEL_XENOARCH_EXEMPT
 
-/*
+
 /datum/map_z_level/tether/wilderness
 	name = "Wilderness"
 	flags = MAP_LEVEL_PLAYER
@@ -512,28 +521,3 @@ Allignment: Neutral to NanoTrasen. No Discount for services expected."}
 		M.life_disabled = 0
 		frozen_mobs -= M
 	frozen_mobs.Cut()
-
-/datum/map_z_level/tether/wilderness/wild_1
-	z = Z_LEVEL_SURFACE_WILDERNESS_1
-
-/datum/map_z_level/tether/wilderness/wild_2
-	z = Z_LEVEL_SURFACE_WILDERNESS_2
-
-/datum/map_z_level/tether/wilderness/wild_3
-	z = Z_LEVEL_SURFACE_WILDERNESS_3
-
-/datum/map_z_level/tether/wilderness/wild_4
-	z = Z_LEVEL_SURFACE_WILDERNESS_4
-
-/datum/map_z_level/tether/wilderness/wild_5
-	z = Z_LEVEL_SURFACE_WILDERNESS_5
-
-/datum/map_z_level/tether/wilderness/wild_6
-	z = Z_LEVEL_SURFACE_WILDERNESS_6
-
-/datum/map_z_level/tether/wilderness/wild_crash
-	z = Z_LEVEL_SURFACE_WILDERNESS_CRASH
-
-/datum/map_z_level/tether/wilderness/wild_ruins
-	z = Z_LEVEL_SURFACE_WILDERNESS_RUINS
-*/
