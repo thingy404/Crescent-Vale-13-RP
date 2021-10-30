@@ -24032,16 +24032,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tether/station/explorer_prep)
-"rIy" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret/stationary{
-	gl_uid = "exploration";
-	installation = /obj/item/gun/energy/phasegun;
-	name = "exploration turret";
-	uid = "exploration"
-	},
-/turf/simulated/floor/tiled/techfloor/grid,
-/area/shuttle/excursion/cargo)
 "rLO" = (
 /obj/effect/floor_decal/borderfloorblack{
 	dir = 4
@@ -35736,7 +35726,7 @@ unc
 unc
 unc
 unc
-rIy
+aau
 aap
 avK
 suf

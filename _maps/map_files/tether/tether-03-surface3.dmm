@@ -3458,7 +3458,7 @@
 	dir = 4;
 	pixel_x = -30
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "gt" = (
 /obj/effect/floor_decal/steeldecal/steel_decals10{
@@ -4000,7 +4000,7 @@
 /turf/simulated/shuttle/plating,
 /area/vacant/vacant_shop)
 "hq" = (
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "hr" = (
 /obj/machinery/alarm{
@@ -4380,7 +4380,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "hW" = (
 /obj/structure/grille,
@@ -4824,7 +4824,7 @@
 /area/vacant/vacant_shop)
 "iC" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "iD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4884,7 +4884,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "iJ" = (
 /obj/machinery/light{
@@ -5182,7 +5182,7 @@
 "jc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "jd" = (
 /obj/effect/floor_decal/borderfloor{
@@ -6486,7 +6486,7 @@
 	pixel_x = 25
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "lt" = (
 /obj/structure/table/standard,
@@ -7437,7 +7437,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "nq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7658,7 +7658,7 @@
 "nR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/medical,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "nS" = (
 /obj/machinery/door/firedoor,
@@ -7691,6 +7691,11 @@
 "nV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/vacant/vacant_shop)
 "nW" = (
@@ -8001,7 +8006,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "oF" = (
 /obj/item/reagent_containers/food/drinks/bottle/orangejuice,
@@ -11628,7 +11633,7 @@
 "uP" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "uQ" = (
 /obj/structure/table/marble,
@@ -12742,7 +12747,7 @@
 "wR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/mouseremains,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "wS" = (
 /obj/effect/floor_decal/borderfloor{
@@ -12956,7 +12961,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/cash,
 /obj/random/junk,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "xj" = (
 /obj/structure/table/woodentable,
@@ -12974,7 +12979,7 @@
 /area/vacant/vacant_shop)
 "xl" = (
 /obj/random/mouseremains,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "xm" = (
 /obj/structure/table/rack{
@@ -13012,7 +13017,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/random/fishing_junk,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "xp" = (
 /obj/machinery/door/firedoor/glass,
@@ -13052,7 +13057,7 @@
 "xs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/vacant/vacant_shop)
 "xt" = (
 /obj/item/storage/dicecup/loaded,
@@ -23697,6 +23702,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /mob/living/simple_mob/animal/passive/bird/black_bird{
 	desc = "The Bartenders beloved pet bird.";
 	name = "Fried Chicken"
@@ -23819,6 +23827,11 @@
 /obj/machinery/light_switch{
 	pixel_y = 30
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/wood,
 /area/tether/surfacebase/bar_backroom)
 "Pd" = (
@@ -23915,9 +23928,7 @@
 /area/crew_quarters/barrestroom)
 "Pn" = (
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "1-8"
 	},
 /turf/simulated/wall,
 /area/tether/surfacebase/bar_backroom)
@@ -23933,13 +23944,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "16-0"
-	},
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/wood,
 /area/tether/surfacebase/bar_backroom)
@@ -24544,6 +24556,14 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/wood,
 /area/tether/surfacebase/atrium_three)
+"Uc" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/wall,
+/area/tether/surfacebase/bar_backroom)
 "Uh" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -24684,6 +24704,15 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass,
 /area/tether/surfacebase/public_garden_three)
+"VR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/abandonedlibrary)
 "Wm" = (
 /obj/machinery/camera/network/northern_star,
 /turf/simulated/floor/outdoors/grass/sif/virgo3b,
@@ -24781,6 +24810,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/tether/surfacebase/public_garden_three)
+"Yr" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/wood,
+/area/tether/surfacebase/bar_backroom)
 "Yu" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/borderfloor{
@@ -36528,7 +36563,7 @@ Af
 AH
 Bq
 zP
-xT
+VR
 yb
 Af
 AE
@@ -40085,7 +40120,7 @@ NO
 NY
 Ok
 OR
-RB
+Uc
 Pc
 ON
 PJ
@@ -40229,7 +40264,7 @@ Ol
 OS
 Pn
 Po
-OO
+Yr
 OO
 PL
 ac
